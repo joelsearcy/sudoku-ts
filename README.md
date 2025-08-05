@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# Sudoku TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React TypeScript application for playing Sudoku puzzles.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Interactive Sudoku game board
+- Digit entry with popover interface
+- Game state management with React Context
+- Theme support
+- Mock API for puzzle data
+- Built with React, TypeScript, and Vite
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18 or higher
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will open at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+### Testing
+
+```bash
+npm test
+```
+
+## Project Structure
+
+```
+src/
+├── api/             # API client and mock data
+├── assets/          # Static assets
+├── components/      # Reusable React components
+│   ├── DigitPopover.tsx
+│   ├── SudokuBoard.tsx
+│   └── SudokuCell.tsx
+├── pages/           # Page-level components
+│   └── SudokuGame.tsx
+├── store/           # Context providers and state management
+│   ├── GameContext.tsx
+│   └── ThemeContext.tsx
+├── types/           # TypeScript type definitions
+├── App.tsx          # Main application component
+└── main.tsx         # Application entry point
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm test` - Run tests
+- `npm run lint` - Run ESLint
+
+## Technologies Used
+
+- **React** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and development server
+- **ESLint** - Code linting
+- **React Context** - State management
+
+## Development Setup
+
+This project uses:
+- **Vite** for fast development and building
+- **TypeScript** for type safety
+- **ESLint** with TypeScript rules for code quality
+- **React 18** with modern features
